@@ -6,7 +6,7 @@ const reducer = (state, action) =>{
            case "add-task":
             return{
                   tasks: [
-                        ...state.tasks, {name: action. inputValue, isCompleted: false}
+                        ...state.tasks, {name: action.nome, preco: action.preco, isCompleted: false}
                   ],
                   tasksCount: state.tasksCount + 1
             }
@@ -22,19 +22,23 @@ const reducer = (state, action) =>{
 
 const Reduce = () =>{
       const [state, dispatch] = useReducer(reducer, {tasks: [], tasksCount: 0})
-      const [inputValue, setInputValue] = useState("")
+      const [nome, setNome] = useState()
+      const [preco, setPreco] = useState()
+      
 
       return (
             <div>
-                  <input value={inputValue} onChange={(e) => setInputValue(e.target.value)}  />
+                  <input value={nome} onChange={(e) => setNome(e.target.value)}  />
+                  <input value={preco} onChange={(e) => setPreco(e.target.value)}  />
                   <button onClick={() => {
-                        dispatch({type: 'add-task', inputValue})
-                        setInputValue("")
+                        dispatch({type: 'add-task', nome, preco})
+                        setNome("")
+                        setPreco("")
                         } }>Adicionar</button><br/>
                   {state.tasksCount}
                   {state.tasks.map((task, index) => (
                   <p onClick={() => dispatch({type: "toggle-task" , payload: index})}
-                  style={{textDecoration: task.isCompleted ? 'line-through' : 'none'}}>{task.name}</p>))}
+                  style={{textDecoration: task.isCompleted ? 'line-through' : 'none'}}>Nome: {task.name} - Preço: {task.preco}</p>))}
             </div>
             
       )

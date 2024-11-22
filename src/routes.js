@@ -6,6 +6,8 @@ import Cards from './components/pages/somarCard';
 import Hooks from './components/pages/hooks';
 import Name from './components/pages/names';
 import Reduce from './components/pages/reduce';
+import Memo from './components/pages/memo';
+import Django from './components/pages/useCallback/items';
 function RoutesApp(){
     return(
         <BrowserRouter>
@@ -16,6 +18,9 @@ function RoutesApp(){
             <Route path='/hooks' element={<Hooks/>}/>
             <Route path='/names' element={<Name/>}/>
             <Route path='/reduce' element={<Reduce/>}/>
+            <Route path='/memo' element={<Memo/>}/>
+            <Route path='/django' element={<Django/>}/>
+
 
 
         </Routes>
