@@ -76,7 +76,7 @@ function Cards() {
                   [id]: Math.max(0, quantities[id])
             });
       }
-
+      console.log(quantities)
       function handleProduct(id) {
             const quantidade = quantities[id];
 
